@@ -20,7 +20,9 @@ public class Rental {
     public Movie getMovie() {
         return _movie;
     }
-
+    public String getMovieTitle(){
+        return  _movie.getTitle();
+    }
     public double calculateCharge() {
         double charge = 0;
         // determine amounts for each line
@@ -50,13 +52,5 @@ public class Rental {
         }
         return 0;
     }
-    /*public double getTotalAmount() {
-        double totalAmount = 0;
-        Enumeration rentals = _customer.getRentals().elements();
-        while (rentals.hasMoreElements()) {
-            rentals.nextElement();
-            totalAmount += calculateCharge();
-        }
-        return totalAmount;
-    }*/
+
 }

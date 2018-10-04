@@ -18,7 +18,7 @@ public class Statement {
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();
             // show figures for this rental
-            result += "\t" + each.getMovie().getTitle() +
+            result += "\t" + each.getMovieTitle() +
                     "\t" + String.valueOf(each.calculateCharge()) + "\n";
         }
         // add footer lines
