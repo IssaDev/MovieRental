@@ -5,7 +5,7 @@ import java.util.Vector;
 
 public class Statement {
     private Vector _rentals = new Vector();
-    private  Customer cust;
+    protected  Customer cust;
     public  Statement(Customer cust){
         this.cust = cust;
     }

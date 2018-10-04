@@ -11,7 +11,9 @@ public class Main {
         Statement custStatement = new Statement(newCust);
         newCust.addRental(newRental);
         newCust.addRental(rent);
-        String res = custStatement.statement();
+        //String res = custStatement.statement();
+        XmlStatement state = new XmlStatement(newCust);
+        String res = state.statement();
         System.out.println(res);
     }
 }
