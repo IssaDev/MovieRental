@@ -1,12 +1,16 @@
 package com.oos;
 
+import java.util.Enumeration;
+
 public class Rental {
     private Movie _movie;
     private int _daysRented;
+    private Customer _customer;
 
-    public Rental(Movie movie, int daysRented) {
+    public Rental(Movie movie, int daysRented, Customer customer) {
         _movie = movie;
         _daysRented = daysRented;
+        _customer = customer;
     }
 
     public int getDaysRented() {
@@ -46,4 +50,13 @@ public class Rental {
         }
         return 0;
     }
+    /*public double getTotalAmount() {
+        double totalAmount = 0;
+        Enumeration rentals = _customer.getRentals().elements();
+        while (rentals.hasMoreElements()) {
+            rentals.nextElement();
+            totalAmount += calculateCharge();
+        }
+        return totalAmount;
+    }*/
 }

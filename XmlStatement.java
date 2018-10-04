@@ -1,16 +1,14 @@
+/*
 package com.oos;
 
 import java.util.Enumeration;
-import java.util.Vector;
 
-public class Statement {
-    private Vector _rentals = new Vector();
-    private  Customer cust;
-    public  Statement(Customer cust){
-        this.cust = cust;
+public class XmlStatement extends Statement {
+    public XmlStatement(Customer cust) {
+        super(cust);
     }
 
-
+    @Override
     public String statement() {
         Enumeration rentals = cust.getRentals().elements();
         String result = "Rental Record for " + cust.getName() + "\n";
@@ -21,13 +19,12 @@ public class Statement {
             result += "\t" + each.getMovie().getTitle() +
                     "\t" + String.valueOf(each.calculateCharge()) + "\n";
         }
+
         // add footer lines
-        result += "Amount owed is " + String.valueOf(cust.getTotalAmount()) + "\n";
-        result += "You earned " + String.valueOf(cust.totalFrequentRenterPoints()) +
+        result += "Amount owed is " + String.valueOf(getTotalAmount()) + "\n";
+        result += "You earned " + String.valueOf(totalFrequentRenterPoints()) +
                 " frequent renter points";
         return result;
     }
-
-
-
 }
+*/
