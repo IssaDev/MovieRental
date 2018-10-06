@@ -6,6 +6,7 @@ public class Rental {
     private Movie _movie;
     private int _daysRented;
     private Customer _customer;
+    Price price =  new Price();
 
     public Rental(Movie movie, int daysRented, Customer customer) {
         _movie = movie;
@@ -26,17 +27,14 @@ public class Rental {
     }
 
     public double calculateCharge() {
-        Price price =  new Price();
+
         double charge = price.rentalPrice(getMoviePrice(),getDaysRented());
 
         return charge;
     }
     public int getFrequentRenterPoints(){
-        if ((getMoviePrice() == Movie.NEW_RELEASE) &&
-                (getDaysRented() > 1)) {
-            return  2;
-        }
-        return 0;
+        int points =price.frequentRenterPoints(getMoviePrice(),getDaysRented());
+        return points;
     }
 
 }
