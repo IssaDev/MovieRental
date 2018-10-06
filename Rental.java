@@ -23,10 +23,13 @@ public class Rental {
     public String getMovieTitle(){
         return  _movie.getTitle();
     }
+    public int getMoviePrice(){
+        return _movie.getPriceCode();
+    }
     public double calculateCharge() {
         double charge = 0;
         // determine amounts for each line
-        switch (getMovie().getPriceCode()) {
+        switch (getMoviePrice()) {
             case Movie.REGULAR:
                 charge += 2;
                 if (getDaysRented() > 2) {
