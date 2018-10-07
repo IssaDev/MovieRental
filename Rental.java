@@ -1,7 +1,9 @@
 package com.oos;
 
+
 public class Rental {
-    Price price = new Price();
+    private Price price;
+
     private Movie _movie;
     private int _daysRented;
 
@@ -19,16 +21,18 @@ public class Rental {
         return _movie.getTitle();
     }
 
-    public int getMoviePrice() {
+    public Price getMoviePrice() {
         return _movie.getPriceCode();
     }
 
     public double calculateCharge() {
-        return price.rentalPrice(getMoviePrice(), getDaysRented());
+        price = getMoviePrice();
+        return price.rentalPrice(getDaysRented());
     }
 
     public int getFrequentRenterPoints() {
-        return price.frequentRenterPoints(getMoviePrice(), getDaysRented());
+        price = getMoviePrice();
+        return price.frequentRenterPoints(getDaysRented());
     }
 
 }
