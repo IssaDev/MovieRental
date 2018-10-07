@@ -14,8 +14,8 @@ public class XmlStatement extends Statement {
 
         for (Rental each : rentals) {
             // show figures for this rental
-            result += "<Title>" + each.getMovieTitle() + "<Title/>" + "\n" +
-                    "<AmountCharged>" + String.valueOf(each.calculateCharge()) + "<AmountCharged/>" + "\n";
+            result += "<Movies>" + "\n" + "\t" + "<Title>" + each.getMovieTitle() + "<Title/>" + "\n" +
+                    "\t" + "<AmountCharged>" + String.valueOf(each.calculateCharge()) + "<AmountCharged/>" + "\n" + "<Movies/> " + "\n";
         }
 
         // add footer lines
