@@ -1,40 +1,34 @@
 package com.oos;
 
-import java.util.Enumeration;
-
 public class Rental {
+    Price price = new Price();
     private Movie _movie;
     private int _daysRented;
-    private Customer _customer;
-    Price price =  new Price();
 
-    public Rental(Movie movie, int daysRented, Customer customer) {
+    public Rental(Movie movie, int daysRented) {
         _movie = movie;
         _daysRented = daysRented;
-        _customer = customer;
+
     }
 
     public int getDaysRented() {
         return _daysRented;
     }
 
-    public String getMovieTitle(){
-        return  _movie.getTitle();
+    public String getMovieTitle() {
+        return _movie.getTitle();
     }
 
-    public int getMoviePrice(){
+    public int getMoviePrice() {
         return _movie.getPriceCode();
     }
 
     public double calculateCharge() {
-
-        double charge = price.rentalPrice(getMoviePrice(),getDaysRented());
-
-        return charge;
+        return price.rentalPrice(getMoviePrice(), getDaysRented());
     }
-    public int getFrequentRenterPoints(){
-        int points =price.frequentRenterPoints(getMoviePrice(),getDaysRented());
-        return points;
+
+    public int getFrequentRenterPoints() {
+        return price.frequentRenterPoints(getMoviePrice(), getDaysRented());
     }
 
 }

@@ -10,7 +10,8 @@ public class Price {
     public Price() {
 
     }
-    public double rentalPrice(int priceCode, int daysRented){
+
+    public double rentalPrice(int priceCode, int daysRented) {
         double charge = 0;
         switch (priceCode) {
             case REGULAR:
@@ -33,10 +34,10 @@ public class Price {
         return charge;
     }
 
-    public int frequentRenterPoints(int priceCode,int daysRented){
+    public int frequentRenterPoints(int priceCode, int daysRented) {
         if ((priceCode == Movie.NEW_RELEASE) &&
                 (daysRented > 1)) {
-            return  2;
+            return 2;
         }
         return 0;
     }

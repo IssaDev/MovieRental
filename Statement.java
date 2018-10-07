@@ -1,23 +1,20 @@
 package com.oos;
 
-import java.util.Enumeration;
-import java.util.Vector;
+import java.util.List;
 
 public class Statement {
-    private Vector _rentals = new Vector();
-    protected  Customer cust;
-    public  Statement(Customer cust){
+    protected Customer cust;
+
+    public Statement(Customer cust) {
         this.cust = cust;
     }
 
 
     public String statement() {
-        Enumeration rentals = cust.getRentals().elements();
+        List<Rental> rentals = cust.getRentals();
         String result = "Rental Record for " + cust.getName() + "\n";
 
-        while (rentals.hasMoreElements()) {
-            Rental each = (Rental) rentals.nextElement();
-            // show figures for this rental
+        for (Rental each : rentals) {
             result += "\t" + each.getMovieTitle() +
                     "\t" + String.valueOf(each.calculateCharge()) + "\n";
         }
@@ -27,7 +24,6 @@ public class Statement {
                 " frequent renter points";
         return result;
     }
-
 
 
 }

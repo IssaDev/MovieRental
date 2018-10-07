@@ -1,9 +1,6 @@
-
 package com.oos;
 
-import com.oos.Customer;
-
-import java.util.Enumeration;
+import java.util.List;
 
 public class XmlStatement extends Statement {
     public XmlStatement(Customer cust) {
@@ -12,15 +9,15 @@ public class XmlStatement extends Statement {
 
     @Override
     public String statement() {
-        Enumeration rentals = cust.getRentals().elements();
-        String result = "<Header>"  + "Rental Record for<Header/>" + "\n" + "<Name>" + cust.getName() + "<Name/>" + "\n";
+        List<Rental> rentals = cust.getRentals();
+        String result = "<Header>" + "Rental Record for<Header/>" + "\n" + "<Name>" + cust.getName() + "<Name/>" + "\n";
 
-        while (rentals.hasMoreElements()) {
-            Rental each = (Rental) rentals.nextElement();
+        for (Rental each : rentals) {
             // show figures for this rental
             result += "<Title>" + each.getMovieTitle() + "<Title/>" + "\n" +
                     "<AmountCharged>" + String.valueOf(each.calculateCharge()) + "<AmountCharged/>" + "\n";
         }
+
         // add footer lines
         result += "<TotalAmount>" + String.valueOf(cust.getTotalAmount()) + "<TotalAmount/>" + "\n";
         result += "<RenterPoints>" + String.valueOf(cust.totalFrequentRenterPoints()) +
