@@ -8,6 +8,7 @@ public class NewReleasePrice extends Price {
         return charge;
     }
 
+    @Override
     public int frequentRenterPoints(int daysRented) {
         if (daysRented > 1) {
             return 2;

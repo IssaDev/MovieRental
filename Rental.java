@@ -6,11 +6,12 @@ public class Rental {
 
     private Movie _movie;
     private int _daysRented;
+    private  int priceCode;
+    PriceFactory priceFactory = new PriceFactory();
 
     public Rental(Movie movie, int daysRented) {
         _movie = movie;
         _daysRented = daysRented;
-
     }
 
     public int getDaysRented() {
@@ -21,17 +22,19 @@ public class Rental {
         return _movie.getTitle();
     }
 
-    public Price getMoviePrice() {
+    public int getMoviePrice() {
         return _movie.getPriceCode();
     }
 
     public double calculateCharge() {
-        price = getMoviePrice();
+        priceCode = getMoviePrice();
+        price = priceFactory.setMoviePrice(priceCode);
         return price.rentalPrice(getDaysRented());
     }
 
     public int getFrequentRenterPoints() {
-        price = getMoviePrice();
+        priceCode = getMoviePrice();
+        price = priceFactory.setMoviePrice(priceCode);
         return price.frequentRenterPoints(getDaysRented());
     }
 
