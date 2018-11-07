@@ -34,7 +34,7 @@ public class Customer {
     }
 
     int totalFrequentRenterPoints() {
-        int frequentRenterPoints = 1;
+        int frequentRenterPoints = 0;
         List<Rental> rentals = getRentals();
         for (Rental each : rentals) {
             frequentRenterPoints += each.getFrequentRenterPoints();
