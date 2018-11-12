@@ -46,7 +46,27 @@ public class Customer {
 
     }
     int doublePoints(int freqPoints){
+        // might not work properly
+        int newR=0;
+        int child=0;
+        int regR = 0;
         List<Rental> rentals = getRentals();
+        if(rentals.size() >2) {
+            for (Rental each : rentals) {
+                if (each.getMoviePrice() == 1) {
+                    newR++;
+                }
+                if (each.getMoviePrice() == 2) {
+                    child++;
+                }
+                if (each.getMoviePrice() == 0) {
+                    regR++;
+                }
+            }
+            if(newR > 2|| child> 2 || regR>2){
+                freqPoints = freqPoints *2;
+            }
+        }
         if(_age >17 && _age <23){
             for(Rental each : rentals){
                 if (each.getMoviePrice() == 1){

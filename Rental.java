@@ -28,15 +28,10 @@ public class Rental {
     }
 
     public double calculateCharge() {
-        //priceCode = getMoviePrice();
-        //price = priceFactory.setMoviePrice(priceCode);
         return price.rentalPrice(getDaysRented());
     }
 
     public int getFrequentRenterPoints() {
-        //priceCode = getMoviePrice();
-        //price = priceFactory.setMoviePrice(priceCode);
-        //return price.frequentRenterPoints(getDaysRented());
         return price.getFrequentRenterPoints(getDaysRented());
     }
 
