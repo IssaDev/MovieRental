@@ -1,10 +1,6 @@
 package com.oos;
 
-public abstract class FRPStrategy {
-    public FRPStrategy() {
-    }
+public interface FRPStrategy {
 
-    public void calculateFrequentRenterPoints(){
-
-    }
+    int frequentRenterPoints(int daysRented);
 }

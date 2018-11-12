@@ -12,6 +12,7 @@ public class Rental {
     public Rental(Movie movie, int daysRented) {
         _movie = movie;
         _daysRented = daysRented;
+        price = priceFactory.setMoviePrice(getMoviePrice());
     }
 
     public int getDaysRented() {
@@ -27,15 +28,16 @@ public class Rental {
     }
 
     public double calculateCharge() {
-        priceCode = getMoviePrice();
-        price = priceFactory.setMoviePrice(priceCode);
+        //priceCode = getMoviePrice();
+        //price = priceFactory.setMoviePrice(priceCode);
         return price.rentalPrice(getDaysRented());
     }
 
     public int getFrequentRenterPoints() {
-        priceCode = getMoviePrice();
-        price = priceFactory.setMoviePrice(priceCode);
-        return price.frequentRenterPoints(getDaysRented());
+        //priceCode = getMoviePrice();
+        //price = priceFactory.setMoviePrice(priceCode);
+        //return price.frequentRenterPoints(getDaysRented());
+        return price.getFrequentRenterPoints(getDaysRented());
     }
 
 }

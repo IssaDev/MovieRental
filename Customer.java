@@ -7,8 +7,10 @@ import java.util.List;
 public class Customer {
     private String _name;
     private ArrayList<Rental> _rentals = new ArrayList<>();
+    private int _age;
 
-    public Customer(String name) {
+    public Customer(String name, int age) {
+        _age = age;
         _name = name;
     }
 
@@ -34,13 +36,26 @@ public class Customer {
     }
 
     int totalFrequentRenterPoints() {
-        int frequentRenterPoints = 0;
+        int frequentRenterPoints = 1;
         List<Rental> rentals = getRentals();
         for (Rental each : rentals) {
             frequentRenterPoints += each.getFrequentRenterPoints();
         }
+        frequentRenterPoints = doublePoints(frequentRenterPoints);
         return frequentRenterPoints;
 
+    }
+    int doublePoints(int freqPoints){
+        List<Rental> rentals = getRentals();
+        if(_age >17 && _age <23){
+            for(Rental each : rentals){
+                if (each.getMoviePrice() == 1){
+                    freqPoints = freqPoints *2;
+                    break;
+                }
+            }
+        }
+        return  freqPoints;
     }
 
 }
